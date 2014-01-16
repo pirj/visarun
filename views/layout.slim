@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Visa run
+
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans"
+    link rel="stylesheet" href="/css/bootstrap.min.css"
+    link rel="stylesheet" href="/css/app.css"
+
+    == yield_content :css
+
+  body
+    .container
+      == yield_content :nav
+
+      == yield
+
+      == slim :footer
+
+    == yield_content :js

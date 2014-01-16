@@ -1,0 +1,94 @@
+html, body {
+  font-family: 'PT Sans', sans-serif;
+}
+
+body::after {
+  content: "";
+  background-image: url(/img/stamps_pattern.jpg);
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#price {
+  padding: 20pt ;
+  background-image: url(/img/white_carbon.png);
+  text-align: center;
+}
+
+#price .unit {
+  padding-top: 15px;
+}
+
+#price .more {
+  border-radius: 0 0 10px 10px;
+}
+
+#price .thumbnail {
+  padding: 0px;
+  border-radius: 10px;
+  background-color: #d7d7d7;
+}
+
+#price .thumbnail .caption {
+  background-color: #a1a1a1;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 500px 50px;
+  border-bottom-right-radius: 500px 50px;
+
+  border-bottom: 3px solid #000;
+  margin-bottom: 20px;
+}
+
+#price .thumbnail .more hr {
+  border-top: 1px solid #a1a1a1;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#price .thumbnail .button {
+  background-color: #a1a1a1;
+  padding: 10px;
+}
+
+#price .thumbnail .button .btn {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+#price .thumbnail .caption h3 {
+  font-size: 29pt;
+}
+
+#price .thumbnail .caption .desc {
+  font-size: 16pt;
+}
+
+#price .thumbnail .caption .desc2 {
+  font-size: 14pt;
+}
+
+#price p {
+  font-size: 16pt;
+}
+
+#price .includes {
+  font-size: 12pt;
+  color: #555555;
+}
+
+#price .price {
+  font-size: 42pt;
+}
+
+#price a.btn {
+  border-radius: 30px;
+  background-color: #f26522;
+  border-color: #b23911;
+}

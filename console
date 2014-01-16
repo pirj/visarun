@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+require 'irb'
+require './common'
+
+Bundler.require :worker
+Bundler.require :webapp
+Bundler.require :development
+
+Dir['controllers/*.rb'].each { |file| require File.join Dir.pwd, file }
+
+IRB.start
