@@ -14,6 +14,10 @@ body::after {
   z-index: -1;
 }
 
+#price, #contacts {
+  /* box-shadow: 0px 5px 5px #222; */
+}
+
 #price {
   padding: 20pt ;
   background-image: url(/img/white_carbon.png);
@@ -37,8 +41,8 @@ body::after {
 #price .thumbnail .caption {
   background-color: #a1a1a1;
   color: white;
-  border-radius: 10px;
-  box-shadow: 0px 5px 3px #222;
+  border-radius: 10px 10px 0 0;
+  /* box-shadow: 0px 5px 3px #222; */
   margin-bottom: 20px;
 }
 
@@ -51,21 +55,26 @@ body::after {
 #price .thumbnail .button {
   background-color: #a1a1a1;
   padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 5px 3px #222;
+  border-radius: 0 0 10px 10px;
 }
 
-#price .thumbnail .button .btn {
-  padding-left: 2em;
-  padding-right: 2em;
-  transition: color 0.5s;
-  border: none;
-  font-weight: bold;
-  box-shadow: inset 0px 1px 4px white, 0px 2px 2px #888;
+#price .thumbnail .caption:before, #price .thumbnail .caption:after {
+  border: solid transparent;
+  content: "";
+  position: relative;
+  pointer-events: none;
 }
 
-#price .thumbnail .button .btn:hover {
-  color: black;
+#price .thumbnail .caption:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #88b7d5;
+  border-width: 30px;
+}
+
+#price .thumbnail .caption:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-top-color: #c2e1f5;
+  border-width: 36px;
 }
 
 #price .thumbnail .caption h3 {
@@ -93,8 +102,33 @@ body::after {
   font-size: 42pt;
 }
 
-#price a.btn {
+#contacts {
+  background: url(/img/debut_dark.png);
+  color: white;
+  padding: 20pt;
+}
+
+#contacts .head {
+  font-size: 24pt;
+}
+
+.button .btn {
+  padding-left: 2em;
+  padding-right: 2em;
+  transition: color 0.5s;
+  border: none;
+  font-weight: bold;
+  box-shadow: inset 0px 1px 2px white, 0px 2px 1px black;
+
   border-radius: 30px;
   background-color: #f26522;
-  border-color: #b23911;
+}
+
+.button .btn:hover {
+  color: black;
+}
+
+#payment {
+  background: url(/img/navy_blue.png);
+  color: white;
 }

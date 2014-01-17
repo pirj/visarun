@@ -20,7 +20,6 @@
         p визовый сбор $10
         hr
         p &nbsp;
-    .thumbnail
       .button
         a.btn.btn-primary.btn-lg href="#" Выбрать
 
@@ -42,7 +41,6 @@
         p визовый сбор $10
         hr
         p комфортабельный катамаран
-    .thumbnail
       .button
         a.btn.btn-primary.btn-lg href="#" Выбрать
 
@@ -64,7 +62,43 @@
         p отель 4****
         hr
         p &nbsp;
-    .thumbnail
       .button
         a.btn.btn-primary.btn-lg href="#" Выбрать
 
+#contacts.row
+  .col-md-12
+    p.head
+      | Оставьте ваши контактные данные:
+    form.form-horizontal
+      .form-group
+        label.col-md-2.control-label for="name" Имя:
+        .col-md-4
+          input#name.form-control type="email" placeholder="Иван Иванов"
+
+      .form-group
+        label.col-md-2.control-label for="phone" Телефон:
+        .col-md-4
+          input#phone.form-control type="phone" placeholder="0909099099"
+
+      .form-group
+        label.col-md-2.control-label for="size" Количество человек:
+        .radio.radio-inline.col-md-10
+          .col-md-1
+            input type="radio" name="quantity" value="1" checked="checked" 1
+          .col-md-1
+            input type="radio" name="quantity" value="2" 2
+          .col-md-1
+            input type="radio" name="quantity" value="3" 3
+          .col-md-1
+            input type="radio" name="quantity" value="4" 4
+          .col-md-1
+            input type="radio" name="quantity" value="5" 5
+
+      .button
+        a.btn.btn-primary.btn-lg href="#" Перейти к оплате
+
+#payment.row
+  .col-md-12
+    p.head
+      | Выберите удобный способ оплаты:
+    | blah seven
