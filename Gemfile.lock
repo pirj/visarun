@@ -29,9 +29,6 @@ GEM
     dm-postgres-adapter (1.2.0)
       dm-do-adapter (~> 1.2.0)
       do_postgres (~> 0.10.6)
-    dm-sqlite-adapter (1.2.0)
-      dm-do-adapter (~> 1.2.0)
-      do_sqlite3 (~> 0.10.6)
     dm-timestamps (1.2.0)
       dm-core (~> 1.2.0)
     dm-types (1.2.2)
@@ -45,8 +42,6 @@ GEM
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
     do_postgres (0.10.13)
-      data_objects (= 0.10.13)
-    do_sqlite3 (0.10.13)
       data_objects (= 0.10.13)
     eventmachine (1.0.3)
     factory_girl (4.3.0)
@@ -64,6 +59,7 @@ GEM
     minitest (4.7.5)
     moneta (0.7.20)
     multi_json (1.8.4)
+    pg (0.17.1)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -119,7 +115,6 @@ DEPENDENCIES
   dm-aggregates
   dm-migrations
   dm-postgres-adapter
-  dm-sqlite-adapter
   dm-timestamps
   dm-types
   dm-validations
@@ -129,6 +124,7 @@ DEPENDENCIES
   i18n
   logging
   moneta
+  pg
   pry
   pry-rescue
   rack-contrib

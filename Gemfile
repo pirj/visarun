@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'logging'
 
-gem 'thin'
 gem 'eventmachine'
 gem 'sinatra'
 gem 'sinatra-contrib', require: 'sinatra/contrib'
@@ -24,12 +23,14 @@ gem 'dm-aggregates'
 
 group :production do
   gem 'dm-postgres-adapter'
+  gem 'pg'
 end
 
 group :development do
-  gem 'dm-sqlite-adapter'
+  # gem 'dm-sqlite-adapter'
   gem 'pry'
   gem 'pry-rescue'
+  gem 'thin'
 end
 
 group :test do
