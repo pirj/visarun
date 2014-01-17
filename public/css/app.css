@@ -37,12 +37,8 @@ body::after {
 #price .thumbnail .caption {
   background-color: #a1a1a1;
   color: white;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 500px 50px;
-  border-bottom-right-radius: 500px 50px;
-
-  border-bottom: 3px solid #000;
+  border-radius: 10px;
+  box-shadow: 0px 5px 3px #222;
   margin-bottom: 20px;
 }
 
@@ -55,11 +51,21 @@ body::after {
 #price .thumbnail .button {
   background-color: #a1a1a1;
   padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 3px #222;
 }
 
 #price .thumbnail .button .btn {
   padding-left: 2em;
   padding-right: 2em;
+  transition: color 0.5s;
+  border: none;
+  font-weight: bold;
+  box-shadow: inset 0px 1px 4px white, 0px 2px 2px #888;
+}
+
+#price .thumbnail .button .btn:hover {
+  color: black;
 }
 
 #price .thumbnail .caption h3 {
