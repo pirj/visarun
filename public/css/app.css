@@ -33,7 +33,7 @@ body::after {
 }
 
 #price .thumbnail {
-  padding: 0px;
+  padding: 0 0 4px 0;
   border-radius: 10px;
   background-color: #d7d7d7;
 }
@@ -44,6 +44,9 @@ body::after {
   border-radius: 10px 10px 0 0;
   /* box-shadow: 0px 5px 3px #222; */
   margin-bottom: 20px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 #price .thumbnail .more hr {
@@ -56,25 +59,6 @@ body::after {
   background-color: #a1a1a1;
   padding: 10px;
   border-radius: 0 0 10px 10px;
-}
-
-#price .thumbnail .caption:before, #price .thumbnail .caption:after {
-  border: solid transparent;
-  content: "";
-  position: relative;
-  pointer-events: none;
-}
-
-#price .thumbnail .caption:after {
-  border-color: rgba(136, 183, 213, 0);
-  border-top-color: #88b7d5;
-  border-width: 30px;
-}
-
-#price .thumbnail .caption:before {
-  border-color: rgba(194, 225, 245, 0);
-  border-top-color: #c2e1f5;
-  border-width: 36px;
 }
 
 #price .thumbnail .caption h3 {
@@ -102,13 +86,20 @@ body::after {
   font-size: 42pt;
 }
 
-#contacts {
-  background: url(/img/debut_dark.png);
+#contacts, #payment {
   color: white;
   padding: 20pt;
 }
 
-#contacts .head {
+#contacts {
+  background: url(/img/debut_dark.png);
+}
+
+#payment {
+  background: url(/img/navy_blue.png);
+}
+
+#contacts .head, #payment .head {
   font-size: 24pt;
 }
 
@@ -131,4 +122,8 @@ body::after {
 #payment {
   background: url(/img/navy_blue.png);
   color: white;
+}
+
+.commuter {
+  width: 50%;
 }
