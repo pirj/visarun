@@ -5,84 +5,83 @@
   .col-md-4.unit
     .thumbnail
       .caption
-        h3 Ранонг
+        h3=t('destinations.ranong.title')
         p.desc &nbsp;
-        p.desc2 для бережливых
+        p.desc2=t('destinations.ranong.desc2')
         p.price
           span 1290
           sup ฿
       .more
-        p.includes в стоимость входит
-        p трансфер
+        p.includes=t('includes')
+        p=t('transfer')
         hr
-        p завтрак + обед
+        p=t('breakfast_lunch')
         hr
-        p визовый сбор $10
+        p=t('visa_fee')
         hr
         p &nbsp;
       .button
-        a.btn.btn-primary.btn-lg href="#" Выбрать
+        a.btn.btn-primary.btn-lg href="#" =t('choose')
 
   .col-md-4.unit
     .thumbnail
       .caption
-        h3 Ранонг
-        p.desc Andaman Club
-        p.desc2 для любителей комфорта
+        h3=t('destinations.andaman.title')
+        p.desc=t('destinations.andaman.desc')
+        p.desc2=t('destinations.andaman.desc2')
         p.price
           span 1690
           sup ฿
       .more
-        p.includes в стоимость входит
-        p трансфер
+        p.includes=t('includes')
+        p=t('transfer')
         hr
-        p завтрак + обед
+        p=t('breakfast_lunch')
         hr
-        p визовый сбор $10
+        p=t('visa_fee')
         hr
-        p комфортабельный катамаран
+        p=t('catamaran')
       .button
-        a.btn.btn-primary.btn-lg href="#" Выбрать
+        a.btn.btn-primary.btn-lg href="#" =t('choose')
 
   .col-md-4.unit
     .thumbnail
       .caption
-        h3 Пенанг
+        h3=t('destinations.penang.title')
         p.desc &nbsp;
-        p.desc2 за новой визой
+        p.desc2=t('destinations.penang.desc2')
         p.price
           span 3490
           sup ฿
       .more
-        p.includes в стоимость входит
-        p трансфер
+        p.includes=t('includes')
+        p=t('transfer')
         hr
-        p завтраки + обеды + ужин
+        p=t('breakfast_lunch_diner')
         hr
-        p отель 4****
+        p=t('hotel')
         hr
         p &nbsp;
       .button
-        a.btn.btn-primary.btn-lg href="#" Выбрать
+        a.btn.btn-primary.btn-lg href="#" =t('choose')
 
 #contacts.row
   .col-md-12
-    p.head
-      | Оставьте ваши контактные данные:
+    p.head=t('contacts')
     form.form-horizontal
       .form-group
-        label.col-md-2.control-label for="name" Имя:
+        label.col-md-2.control-label for="name" =t('name.title')
         .col-md-4
-          input#name.form-control type="email" placeholder="Иван Иванов"
+          input#name.form-control type="email" placeholder=t('name.placeholder')
 
       .form-group
-        label.col-md-2.control-label for="phone" Телефон:
+        label.col-md-2.control-label for="phone" =t('phone.title')
         .col-md-4
           input#phone.form-control type="phone" placeholder="0909099099"
 
       .form-group
         .col-md-2.col-sm-2
-          label.control-label for="size" Количество человек:
+          label.control-label for="quantity" =t('group_size')
         .col-md-10.col-sm-10
           .radio.radio-inline
             .col-md-2.col-sm-2
@@ -95,21 +94,19 @@
               input type="radio" name="quantity" value="4" 4
 
       .button
-        a.btn.btn-primary.btn-lg href="#" Перейти к оплате
+        a.btn.btn-primary.btn-lg href="#" =t('proceed_to_checkout')
 
 #payment.row
   .col-md-10.col-sm-10
     .row
       .col-md-12
-        p.head
-          | Выберите удобный способ оплаты:
+        p.head=t('choose_payment_option')
       .col-md-12
         form.form-horizontal
           .form-group
             .col-md-4.col-sm-6
               input type="radio" name="payment" value="card" checked="checked"
-              span
-                | Оплата банковской картой.
+              span=t('bank_card')
             .col-md-8.col-sm-6
               .cards
                 img src="/img/Small/Visa.png"
@@ -121,12 +118,11 @@
           .form-group
             .col-md-12
               input type="radio" name="payment" value="card"
-              span
-                | Оплата наличными в офисе.
+              span=t('cash')
 
       .col-md-12
         .button
-          a.btn.btn-primary.btn-lg href="#" Оплатить
+          a.btn.btn-primary.btn-lg href="#" =t('pay')
 
   .col-md-2.col-sm-2
     .lock

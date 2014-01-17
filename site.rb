@@ -6,6 +6,15 @@ require 'sinatra/streaming'
 require 'sinatra/content_for'
 require 'sinatra/reloader' if development?
 
+require 'i18n'
+require 'i18n/backend/fallbacks'
+
+configure do
+  I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+  I18n.load_path = Dir[File.join(settings.root, 'locales', '*.yml')]
+  I18n.backend.load_translations
+end
+
 Dir['controllers/*.rb'].each { |file| require File.join Dir.pwd, file }
 
 # environment = development? ? :development : production? ? :production : :test
@@ -27,6 +36,8 @@ class Site < Sinatra::Base
   use Rack::Session::Moneta,
     store: Moneta.new(:DataMapper, setup: (ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.db"))
   use Rack::Protection #, except: :session_hijacking
+
+  use Rack::Locale
 
   register Sinatra::Can
 
@@ -53,5 +64,11 @@ class Site < Sinatra::Base
 
   user do
     current_identity
+  end
+
+  helpers do
+    def t token
+      I18n.t token
+    end
   end
 end

@@ -1,0 +1,47 @@
+en:
+  title: Visa run
+  destinations:
+    ranong:
+      title: Ranong
+      desc2: economy class
+    andaman:
+      title: Ranong
+      desc: Andaman Club
+      desc2: comfort class
+    penang:
+      title: Penang
+      desc2: visa renewal
+
+  includes: price includes
+  transfer: transfer
+  breakfast_lunch: breakfast + lunch
+  breakfast_lunch_diner: 2 breakfasts + 2 lunches + diner
+  visa_fee: $10 visa fee
+  catamaran: comfortable catamaran
+  hotel: 4**** hotel
+
+  choose: Choose
+
+  contacts: "Tell us how to contact you:"
+
+  name:
+    title: "Name:"
+    placeholder: John Smith
+
+  phone:
+    title: "Phone #:"
+
+  group_size: "Group size:"
+
+  proceed_to_checkout: Proceed to checkout
+  pay: Pay
+
+  choose_payment_option: "Choose payment option:"
+  bank_card: Pay with bank card.
+  cash: Pay cash at our local office.
+
+  errors:
+    401: Not autorized
+    403: No access
+    404: Not found
+    500: Unexpected error

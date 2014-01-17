@@ -9,8 +9,11 @@ gem 'sinatra-contrib', require: 'sinatra/contrib'
 gem 'sinatra-flash', require: 'sinatra/flash'
 gem 'sinatra-can', require: 'sinatra/can'
 gem 'rack-protection'
+gem 'rack-contrib'
+gem 'i18n'
 gem 'moneta', require: 'rack/session/moneta'
 gem 'slim'
+
 gem 'bcrypt-ruby', require: 'bcrypt'
 
 gem 'dm-sqlite-adapter'

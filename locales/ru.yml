@@ -1,0 +1,47 @@
+ru:
+  title: Виза ран
+  destinations:
+    ranong:
+      title: Ранонг
+      desc2: для бережливых
+    andaman:
+      title: Ранонг
+      desc: Andaman Club
+      desc2: для любителей комфорта
+    penang:
+      title: Пенанг
+      desc2: за новой визой
+
+  includes: в стоимость входит
+  transfer: трансфер
+  breakfast_lunch: завтрак + обед
+  breakfast_lunch_diner: завтраки + обеды + ужин
+  visa_fee: визовый сбор $10
+  catamaran: комфортабельный катамаран
+  hotel: отель 4****
+
+  choose: Выбрать
+
+  contacts: "Оставьте ваши контактные данные:"
+
+  name:
+    title: "Имя:"
+    placeholder: Иван Иванов
+
+  phone:
+    title: "Телефон:"
+
+  group_size: "Количество человек:"
+
+  proceed_to_checkout: Перейти к оплате
+  pay: Оплатить
+
+  choose_payment_option: "Выберите удобный способ оплаты:"
+  bank_card: Оплата банковской картой.
+  cash: Оплата наличными в офисе.
+
+  errors:
+    401: Не авторизован
+    403: Нет доступа
+    404: Не найдено
+    500: Произошла ужасная ошибка

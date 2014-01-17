@@ -67,6 +67,8 @@ GEM
       interception (>= 0.3)
       pry
     rack (1.5.2)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-protection (1.5.2)
       rack
     rack-test (0.6.2)
@@ -118,10 +120,12 @@ DEPENDENCIES
   eventmachine
   factory_girl
   ffaker
+  i18n
   logging
   moneta
   pry
   pry-rescue
+  rack-contrib
   rack-protection
   sinatra
   sinatra-can
