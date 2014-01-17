@@ -5,12 +5,12 @@ html, body {
 body::after {
   content: "";
   background-image: url(/img/stamps_pattern.jpg);
-  opacity: 0.2;
+  opacity: 0.4;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  position: absolute;
+  position: fixed;
   z-index: -1;
 }
 
@@ -33,7 +33,7 @@ body::after {
 }
 
 #price .thumbnail {
-  padding: 0 0 4px 0;
+  padding: 0;
   border-radius: 10px;
   background-color: #d7d7d7;
 }
@@ -119,11 +119,23 @@ body::after {
   color: black;
 }
 
-#payment {
-  background: url(/img/navy_blue.png);
-  color: white;
-}
-
 .commuter {
   width: 50%;
+}
+
+.cards img {
+  width: 50px;
+}
+
+#payment span {
+  font-size: 14pt;
+}
+
+#payment .lock img {
+  width: 100%;
+  -moz-filter: blur(2px);
+  -webkit-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
 }

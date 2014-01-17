@@ -81,24 +81,53 @@
           input#phone.form-control type="phone" placeholder="0909099099"
 
       .form-group
-        label.col-md-2.control-label for="size" Количество человек:
-        .radio.radio-inline.col-md-10
-          .col-md-1
-            input type="radio" name="quantity" value="1" checked="checked" 1
-          .col-md-1
-            input type="radio" name="quantity" value="2" 2
-          .col-md-1
-            input type="radio" name="quantity" value="3" 3
-          .col-md-1
-            input type="radio" name="quantity" value="4" 4
-          .col-md-1
-            input type="radio" name="quantity" value="5" 5
+        .col-md-2.col-sm-2
+          label.control-label for="size" Количество человек:
+        .col-md-10.col-sm-10
+          .radio.radio-inline
+            .col-md-2.col-sm-2
+              input type="radio" name="quantity" value="1" checked="checked" 1
+            .col-md-2.col-sm-2
+              input type="radio" name="quantity" value="2" 2
+            .col-md-2.col-sm-2
+              input type="radio" name="quantity" value="3" 3
+            .col-md-2.col-sm-2
+              input type="radio" name="quantity" value="4" 4
 
       .button
         a.btn.btn-primary.btn-lg href="#" Перейти к оплате
 
 #payment.row
-  .col-md-12
-    p.head
-      | Выберите удобный способ оплаты:
-    | blah seven
+  .col-md-10.col-sm-10
+    .row
+      .col-md-12
+        p.head
+          | Выберите удобный способ оплаты:
+      .col-md-12
+        form.form-horizontal
+          .form-group
+            .col-md-4.col-sm-6
+              input type="radio" name="payment" value="card" checked="checked"
+              span
+                | Оплата банковской картой.
+            .col-md-8.col-sm-6
+              .cards
+                img src="/img/Small/Visa.png"
+                img src="/img/Small/Mastercard.png"
+                img src="/img/Small/American-Express.png"
+                img src="/img/Small/Diners-Club.png"
+                img src="/img/Small/Discover.png"
+
+          .form-group
+            .col-md-12
+              input type="radio" name="payment" value="card"
+              span
+                | Оплата наличными в офисе.
+
+      .col-md-12
+        .button
+          a.btn.btn-primary.btn-lg href="#" Оплатить
+
+  .col-md-2.col-sm-2
+    .lock
+      img src="/img/lock.png"
