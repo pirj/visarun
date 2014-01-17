@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'logging'
 
+gem 'thin'
 gem 'eventmachine'
 gem 'sinatra'
 gem 'sinatra-contrib', require: 'sinatra/contrib'
@@ -30,7 +31,6 @@ group :development do
   # gem 'dm-sqlite-adapter'
   gem 'pry'
   gem 'pry-rescue'
-  gem 'thin'
 end
 
 group :test do
