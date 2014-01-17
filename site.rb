@@ -33,6 +33,7 @@ class Site < Sinatra::Base
   helpers Sinatra::ContentFor
   helpers Sinatra::Streaming
 
+  use Rack::Session
   # use Rack::Session::Moneta,
   #   store: Moneta.new(:DataMapper, setup: (ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.db"))
   use Rack::Protection #, except: :session_hijacking
