@@ -29,12 +29,11 @@ en:
     placeholder: John Smith
 
   phone:
-    title: "Phone #:"
+    title: "Phone number:"
 
   group_size: "Group size:"
 
-  proceed_to_checkout: Proceed to checkout
-  pay: Pay
+  proceed: "Proceed to checkout"
 
   choose_payment_option: "Choose payment option:"
   bank_card: Pay with bank card.

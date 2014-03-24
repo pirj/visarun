@@ -33,8 +33,7 @@ ru:
 
   group_size: "Количество человек:"
 
-  proceed_to_checkout: Перейти к оплате
-  pay: Оплатить
+  proceed: "Перейти к оплате"
 
   choose_payment_option: "Выберите удобный способ оплаты:"
   bank_card: Оплата банковской картой.

@@ -28,7 +28,7 @@ group :production do
 end
 
 group :development do
-  # gem 'dm-sqlite-adapter'
+  gem 'dm-sqlite-adapter'
   gem 'pry'
   gem 'pry-rescue'
 end

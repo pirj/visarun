@@ -1,6 +1,10 @@
 - content_for :nav do
   == slim :'home/nav'
 
+- content_for :js do
+  script src="/js/HTML.min.js"
+  script src="/js/app.js"
+
 #price.row
   .col-md-4.unit
     .thumbnail
@@ -65,64 +69,48 @@
       .button
         a.btn.btn-primary.btn-lg href="#" =t('choose')
 
-#contacts.row
+#contacts.row.hidden
   .col-md-12
     p.head=t('contacts')
-    form.form-horizontal
+    hr
+    form.form-horizontal.contact-form
       .form-group
-        label.col-md-2.control-label for="name" =t('name.title')
-        .col-md-4
+        label.col-md-4.control-label for="name" =t('name.title')
+        .col-md-8
           input#name.form-control type="email" placeholder=t('name.placeholder')
 
       .form-group
-        label.col-md-2.control-label for="phone" =t('phone.title')
-        .col-md-4
+        label.col-md-4.control-label for="phone" =t('phone.title')
+        .col-md-8
           input#phone.form-control type="phone" placeholder="0909099099"
 
       .form-group
-        .col-md-2.col-sm-2
-          label.control-label for="quantity" =t('group_size')
-        .col-md-10.col-sm-10
-          .radio.radio-inline
-            .col-md-2.col-sm-2
-              input type="radio" name="quantity" value="1" checked="checked" 1
-            .col-md-2.col-sm-2
-              input type="radio" name="quantity" value="2" 2
-            .col-md-2.col-sm-2
-              input type="radio" name="quantity" value="3" 3
-            .col-md-2.col-sm-2
-              input type="radio" name="quantity" value="4" 4
+        label.col-md-4.control-label for="quantity" =t('group_size')
+        .radio.radio-inline.col-md-4
+          .col-md-3.col-sm-3
+            input id="quantity1" type="radio" name="quantity" value="1" checked="checked"
+            label for="quantity1" 1
+          .col-md-3.col-sm-3
+            input id="quantity2" type="radio" name="quantity" value="2"
+            label for="quantity2" 2
+          .col-md-3.col-sm-3
+            input id="quantity3" type="radio" name="quantity" value="3"
+            label for="quantity3" 3
+          .col-md-3.col-sm-3
+            input id="quantity4" type="radio" name="quantity" value="4"
+            label for="quantity4" 4
+        .col-md-4
+          .button.text-right
+            a.btn.btn-primary.btn-lg href="#" =t('proceed')
 
-      .button
-        a.btn.btn-primary.btn-lg href="#" =t('proceed_to_checkout')
-
-#payment.row
+#payment.row.hidden
   .col-md-10.col-sm-10
     .row
-      .col-md-12
-        p.head=t('choose_payment_option')
-      .col-md-12
-        form.form-horizontal
-          .form-group
-            .col-md-4.col-sm-6
-              input type="radio" name="payment" value="card" checked="checked"
-              span=t('bank_card')
-            .col-md-8.col-sm-6
-              .cards
-                img src="/img/Small/Visa.png"
-                img src="/img/Small/Mastercard.png"
-                img src="/img/Small/American-Express.png"
-                img src="/img/Small/Diners-Club.png"
-                img src="/img/Small/Discover.png"
+      p.paypal-logo
+        a href="https://www.paypal.com/th/webapps/mpp/paypal-popup" title="How PayPal Works"
+          img src="/img/AM_SbyPP_mc_vs_dc_ae.jpg"
 
-          .form-group
-            .col-md-12
-              input type="radio" name="payment" value="card"
-              span=t('cash')
-
-      .col-md-12
-        .button
-          a.btn.btn-primary.btn-lg href="#" =t('pay')
+      script src="/js/paypal-button.js?merchant=AC65H947H7QAU" data-button="buynow" data-name="My product" data-amount="1.00"
 
   .col-md-2.col-sm-2
     .lock
