@@ -22,6 +22,8 @@ gem 'dm-migrations'
 gem 'dm-types'
 gem 'dm-aggregates'
 
+gem 'faraday'
+
 group :production do
   gem 'dm-postgres-adapter'
   gem 'pg'

@@ -5,11 +5,15 @@
   script src="/js/HTML.min.js"
   script src="/js/app.js"
 
+#locale.hidden
+  span=I18n.locale
+
 #price.row
   .col-md-4.unit
-    .thumbnail
+    .thumbnail.animation
       .caption
         h3=t('destinations.ranong.title')
+        p.hidden=1
         p.desc &nbsp;
         p.desc2=t('destinations.ranong.desc2')
         p.price
@@ -28,9 +32,10 @@
         a.btn.btn-primary.btn-lg href="#" =t('choose')
 
   .col-md-4.unit
-    .thumbnail
+    .thumbnail.animation
       .caption
         h3=t('destinations.andaman.title')
+        p.hidden=2
         p.desc=t('destinations.andaman.desc')
         p.desc2=t('destinations.andaman.desc2')
         p.price
@@ -49,9 +54,10 @@
         a.btn.btn-primary.btn-lg href="#" =t('choose')
 
   .col-md-4.unit
-    .thumbnail
+    .thumbnail.animation
       .caption
         h3=t('destinations.penang.title')
+        p.hidden=3
         p.desc &nbsp;
         p.desc2=t('destinations.penang.desc2')
         p.price
@@ -69,7 +75,7 @@
       .button
         a.btn.btn-primary.btn-lg href="#" =t('choose')
 
-#contacts.row.hidden
+#contacts.row.invisible.animation
   .col-md-12
     p.head=t('contacts')
     hr
@@ -77,12 +83,12 @@
       .form-group
         label.col-md-4.control-label for="name" =t('name.title')
         .col-md-8
-          input#name.form-control type="email" placeholder=t('name.placeholder')
+          input#name.form-control type="text" name="name" autocomplete='on' placeholder=t('name.placeholder')
 
       .form-group
         label.col-md-4.control-label for="phone" =t('phone.title')
         .col-md-8
-          input#phone.form-control type="phone" placeholder="0909099099"
+          input#phone.form-control type="tel" name="tel" inputmode='tel' autocomplete='on' placeholder="0909099099"
 
       .form-group
         label.col-md-4.control-label for="quantity" =t('group_size')
@@ -101,16 +107,14 @@
             label for="quantity4" 4
         .col-md-4
           .button.text-right
-            a.btn.btn-primary.btn-lg href="#" =t('proceed')
+            a#proceed.btn.btn-primary.btn-lg href="#" =t('proceed')
 
-#payment.row.hidden
+#payment.row.invisible.animation
   .col-md-10.col-sm-10
     .row
       p.paypal-logo
         a href="https://www.paypal.com/th/webapps/mpp/paypal-popup" title="How PayPal Works"
           img src="/img/AM_SbyPP_mc_vs_dc_ae.jpg"
-
-      script src="/js/paypal-button.js?merchant=AC65H947H7QAU" data-button="buynow" data-name="My product" data-amount="1.00"
 
   .col-md-2.col-sm-2
     .lock

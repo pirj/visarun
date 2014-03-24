@@ -14,8 +14,8 @@ body::after {
   z-index: -1;
 }
 
-#price, #contacts {
-  /* box-shadow: 0px 5px 5px #222; */
+.animation {
+  transition: opacity 1.0s ease-in-out;
 }
 
 #price {
@@ -86,8 +86,18 @@ body::after {
   font-size: 42pt;
 }
 
-#price.chosen .more {
-  display: none;
+.invisible, #price.selected .more, #price.selected .button {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+}
+
+#price.selected .thumbnail {
+  opacity: 0.3;
+}
+
+#price.selected .thumbnail.selected {
+  opacity: 1;
 }
 
 #contacts, #payment {
