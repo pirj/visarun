@@ -4,7 +4,7 @@ Bundler.require
 require 'sinatra/contrib'
 require 'sinatra/streaming'
 require 'sinatra/content_for'
-require 'sinatra/reloader' if development?
+# require 'sinatra/reloader' if development?
 
 require 'i18n'
 require 'i18n/backend/fallbacks'
@@ -18,7 +18,7 @@ end
 Dir['controllers/*.rb'].each { |file| require File.join Dir.pwd, file }
 
 # environment = development? ? :development : production? ? :production : :test
-Bundler.require :development if development?
+# Bundler.require :development if development?
 
 class Site < Sinatra::Base
   class InviteRequired < StandardError
