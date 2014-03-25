@@ -29,7 +29,7 @@
         hr
         p &nbsp;
       .button
-        a.btn.btn-primary.btn-lg href="#" =t('choose')
+        a.btn.btn-primary.btn-lg href="#contacts" =t('choose')
 
   .col-md-4.unit
     .thumbnail.animation
@@ -51,7 +51,7 @@
         hr
         p=t('catamaran')
       .button
-        a.btn.btn-primary.btn-lg href="#" =t('choose')
+        a.btn.btn-primary.btn-lg href="#contacts" =t('choose')
 
   .col-md-4.unit
     .thumbnail.animation
@@ -73,9 +73,9 @@
         hr
         p &nbsp;
       .button
-        a.btn.btn-primary.btn-lg href="#" =t('choose')
+        a.btn.btn-primary.btn-lg href="#contacts" =t('choose')
 
-#contacts.row.invisible.animation
+#contacts.row.invisible.animation name="contacts"
   .col-md-12
     p.head=t('contacts')
     hr
@@ -107,9 +107,9 @@
             label for="quantity4" 4
         .col-md-4
           .button.text-right
-            a#proceed.btn.btn-primary.btn-lg href="#" =t('proceed')
+            a#proceed.btn.btn-primary.btn-lg href="#payment" =t('proceed')
 
-#payment.row.invisible.animation
+#payment.row.invisible.animation name="payment"
   .col-md-10.col-sm-10
     .row
       p.paypal-logo
