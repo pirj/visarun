@@ -12,6 +12,8 @@ window.addEventListener('load', function() {
   html('#proceed').addEventListener('click', function() {
 
     html('#proceed').classList.add('invisible')
+    html('#contacts input').each(function(el) { el.disabled = true } )
+
     html('#payment').classList.remove('invisible')
 
     var selected = html('#price .selected')
