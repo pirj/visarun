@@ -1,4 +1,8 @@
 ru:
+  date:
+    formats:
+      default: "DD-MM-YYYY"
+
   title: Виза ран
   destinations:
     ranong:
@@ -23,6 +27,10 @@ ru:
   choose: Выбрать
 
   contacts: "Оставьте ваши контактные данные:"
+  dates: "Кто и когда:"
+
+  date_picker:
+    title: "Когда:"
 
   name:
     title: "Имя:"

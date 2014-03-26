@@ -13,6 +13,7 @@ configure do
   I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
   I18n.load_path = Dir[File.join(settings.root, 'locales', '*.yml')]
   I18n.backend.load_translations
+  I18n.default_locale = :'en-US'
 end
 
 Dir['controllers/*.rb'].each { |file| require File.join Dir.pwd, file }
@@ -21,19 +22,12 @@ Dir['controllers/*.rb'].each { |file| require File.join Dir.pwd, file }
 # Bundler.require :development if development?
 
 class Site < Sinatra::Base
-  class InviteRequired < StandardError
-    def code
-      402
-    end
-  end
-
   register Sinatra::Contrib
   register Sinatra::Flash
 
   helpers Sinatra::ContentFor
   helpers Sinatra::Streaming
 
-  # use Rack::Session::Cookie
   use Rack::Session::Moneta,
     store: Moneta.new(:DataMapper, setup: (ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.db"))
   use Rack::Protection #, except: :session_hijacking
@@ -46,6 +40,7 @@ class Site < Sinatra::Base
 
   set :root, File.dirname(__FILE__)
 
+  # TODO: check!
   [401, 403, 404, 500].each do |code|
     error(code) do
       slim :"errors/#{code}"
@@ -73,3 +68,6 @@ class Site < Sinatra::Base
     end
   end
 end
+
+class FailedPayment < StandardError; end
+class FailedPaymentForRefund < StandardError; end

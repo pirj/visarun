@@ -3,7 +3,8 @@
 
 - content_for :js do
   script src="/js/HTML.min.js"
-  script src="/js/app.js"
+  script src="/js/cookie-monster.min.js"
+  script src="/js/index.js"
 
 #locale.hidden
   span=I18n.locale
@@ -90,6 +91,15 @@
         .col-md-8
           input#phone.form-control type="tel" name="tel" inputmode='tel' autocomplete='on' placeholder="0909099099"
 
+  .col-md-12
+    p.head=t('dates')
+    hr
+    form.form-horizontal.contact-form
+      .form-group
+        label.col-md-4.control-label for="date" =t('date_picker.title')
+        .col-md-8
+          input#date.form-control type="date" name="date" placeholder=t('date.formats.default') value=I18n.l(Date.today + 2)
+
       .form-group
         label.col-md-4.control-label for="quantity" =t('group_size')
         .radio.radio-inline.col-md-4
@@ -105,9 +115,9 @@
           .col-md-3.col-sm-3
             input id="quantity4" type="radio" name="quantity" value="4"
             label for="quantity4" 4
-        .col-md-4
-          .button.text-right
-            a#proceed.btn.btn-primary.btn-lg href="#payment" =t('proceed')
+      .col-md-12
+        .button.text-right
+          a#proceed.btn.btn-primary.btn-lg href="#payment" =t('proceed')
 
 #payment.row.invisible.animation name="payment"
   .col-md-10.col-sm-10

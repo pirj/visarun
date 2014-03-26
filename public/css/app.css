@@ -109,6 +109,19 @@ body::after {
   background: url(/img/debut_dark.png);
 }
 
+/* input { */
+/*   border-width: 3pt; */
+/* } */
+
+/* input:invalid { */
+/*   border-bottom-color: red; */
+/* } */
+
+/* input:valid::after { */
+/*   content: '☺'; */
+/*   border-bottom-color: green; */
+/* } */
+
 #payment {
   background: url(/img/navy_blue.png);
 }
@@ -165,4 +178,8 @@ body::after {
 
 .paypal-button button:before, .paypal-button button:after {
   content: none !important;
+}
+
+.paypal-button.large {
+  font-size: 20pt !important;
 }

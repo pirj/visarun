@@ -1,4 +1,8 @@
 en:
+  date:
+    formats:
+      default: "MM/DD/YYYY"
+
   title: Visa run
   destinations:
     ranong:
@@ -22,7 +26,11 @@ en:
 
   choose: Choose
 
-  contacts: "Tell us how to contact you:"
+  contacts: "How to contact you:"
+  dates: "Who and when:"
+
+  date_picker:
+    title: "Date:"
 
   name:
     title: "Name:"
