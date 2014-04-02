@@ -86,14 +86,18 @@ body::after {
   font-size: 42pt;
 }
 
-.invisible, #price.selected .more, #price.selected .button {
+.invisible *, #price.selected .more, #price.selected .button {
   visibility: hidden;
   height: 0;
   opacity: 0;
 }
 
 #price.selected .thumbnail {
-  opacity: 0.3;
+  opacity: 0.2;
+}
+
+#price.selected .thumbnail:hover {
+  opacity: 1;
 }
 
 #price.selected .thumbnail.selected {
@@ -178,6 +182,10 @@ body::after {
 
 .paypal-button button:before, .paypal-button button:after {
   content: none !important;
+}
+
+form.paypal-button {
+  padding: 20pt 0 0 0;
 }
 
 .paypal-button.large {

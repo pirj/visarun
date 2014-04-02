@@ -122,9 +122,12 @@
 #payment.row.invisible.animation name="payment"
   .col-md-10.col-sm-10
     .row
-      p.paypal-logo
-        a href="https://www.paypal.com/th/webapps/mpp/paypal-popup" title="How PayPal Works"
-          img src="/img/AM_SbyPP_mc_vs_dc_ae.jpg"
+      - if I18n.locale == :ru
+        a href="https://www.paypal.com/ru/webapps/mpp/paypal-popup" title="PayPal Как это работает" target="_blank"
+          img src="https://www.paypalobjects.com/webstatic/ru_RU/mktg/business/pages/logo-center/AM_SbyPP_mc_vs_dc_ae.jpg" alt="PayPal Acceptance Mark"
+      - elsif I18n.locale == :en
+        a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" target="_blank"
+          img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"
 
   .col-md-2.col-sm-2
     .lock
