@@ -3,6 +3,12 @@ en:
     formats:
       default: "MM/DD/YYYY"
 
+  errors:
+    401: Not autorized
+    403: No access
+    404: Not found
+    500: Unexpected error
+
   title: Visa run
   destinations:
     ranong:
@@ -43,12 +49,36 @@ en:
 
   proceed: "Proceed to checkout"
 
-  choose_payment_option: "Choose payment option:"
-  bank_card: Pay with bank card.
-  cash: Pay cash at our local office.
+  success:
+    hooray: Success!
+    p1: Payment for your trip has succeded. The day before we will remind you via email and SMS.
+    p2: Meanwhile you can view route map and pick one so the shuttle can pick you up.
+    p3: If you have any questions or suggestions, feel free to call us 0888888888.
+    copy: "We've sent a copy of this receipt to your email address: "
 
-  errors:
-    401: Not autorized
-    403: No access
-    404: Not found
-    500: Unexpected error
+  fails:
+    general: "The order cannot be processed: "
+    no_such_item: item you requested was not found.
+    not_thb: payment wasn't made in THB (Thai Baht).
+    gross_mismatch: Total does't match price or quantity.
+
+  refund: Your payment will be refunded soon. Sorry for inconvenience. We are notified and will be working on your case to avoid this kind of problems in the future.
+
+  receipt:
+    payer_id: "Payer id: "
+    txn_id: "Payment id: "
+    payment_at: "Payment date: "
+    payer_first_name: "Payer first name: "
+    payer_last_name: "Payer last name: "
+    payer_email: "Payer email: "
+
+    phone: "Contact phone: "
+    leader: "Contact name: "
+    trip_date: "Trip date: "
+    item_readable: "Trip to: "
+    quantity: "Group size: "
+    gross: "Total: "
+
+  ranong: Ranong
+  ranong_andaman: Ranong Andaman Club
+  penang: Penang

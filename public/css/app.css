@@ -18,8 +18,9 @@ body::after {
   transition: opacity 1.0s ease-in-out;
 }
 
-#price {
-  padding: 20pt ;
+#price, #success, #failure {
+  margin-top: 20pt;
+  padding: 20pt;
   background-image: url(/img/white_carbon.png);
   text-align: center;
 }
@@ -190,4 +191,24 @@ form.paypal-button {
 
 .paypal-button.large {
   font-size: 20pt !important;
+}
+
+#success img {
+  max-width: 70%;
+}
+
+#success .outline {
+  padding: 10pt;
+  margin-top: 20pt;
+  text-align: justify;
+  background-color: #a1a1a1;
+  color: white;
+}
+
+#success .outline ul {
+  list-style-type: none;
+}
+
+#success {
+  font-size: 14pt;
 }
