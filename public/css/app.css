@@ -18,7 +18,7 @@ body::after {
   transition: opacity 1.0s ease-in-out;
 }
 
-#price, #success, #failure {
+#price, #success, #failure, #admin {
   margin-top: 20pt;
   padding: 20pt;
   background-image: url(/img/white_carbon.png);
