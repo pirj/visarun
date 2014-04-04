@@ -1,4 +1,24 @@
-p
-  span=t 'fails.general'
-  =text
-p=t :refund
+- content_for :nav do
+  == slim :'home/nav'
+
+#failure.row
+  .col-md-4
+  .col-md-8
+    .row
+      h1=t 'fails.general'
+      p.reason=text
+
+    /* TODO: user FailedOrder from controller here */
+    /* .row.outline */
+    /*   -[[:trip_date, :item_readable, :quantity, :gross, :leader, :phone], [:payer_first_name, :payer_last_name, :payer_email, :payer_id, :txn_id, :payment_at]].each do |group| */
+    /*     .col-md-6 */
+    /*       ul */
+    /*         -group.each do |field| */
+    /*           li */
+    /*             span=t "receipt.#{field}" */
+    /*             =order.send field */
+
+    .row
+      .col-md-12
+        p
+          =t :refund

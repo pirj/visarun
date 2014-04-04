@@ -201,6 +201,10 @@ form.paypal-button {
   list-style-type: none;
 }
 
-#success {
+#success, #failure {
   font-size: 14pt;
+}
+
+#failure .reason {
+  color: red;
 }

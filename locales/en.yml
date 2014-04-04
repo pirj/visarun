@@ -58,6 +58,7 @@ en:
 
   fails:
     general: "The order cannot be processed: "
+    payment_error: payment gate error.
     no_such_item: item you requested was not found.
     not_thb: payment wasn't made in THB (Thai Baht).
     gross_mismatch: Total does't match price or quantity.

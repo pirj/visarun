@@ -11,7 +11,7 @@ class Site < Sinatra::Base
 
   # TODO: EXTERNALIZE or to db
   # FIX: fix Ranong price
-  PRICES = [-1, 1, 1690, 3490].freeze
+  PRICES = [-1, 1290, 1690, 3490].freeze
   ITEMS = [nil, :ranong, :ranong_andaman, :penang].freeze
 
   get '/' do
@@ -84,7 +84,7 @@ class Site < Sinatra::Base
     rescue FailedPaymentForRefund => e
       # TODO: store failed payment for later refund etc
 
-      slim :'home/failed_payment_refund', locals: { text: e.message }
+      slim :'home/failed_payment_refund', locals: { text: e.message, order: order}
     rescue FailedPayment => e
 
       slim :'home/failed_payment', locals: { text: e.message }
