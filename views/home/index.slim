@@ -81,25 +81,25 @@
   .col-md-12
     p.head=t('contacts')
     hr
-    form.form-horizontal.contact-form
+    form#name_phone.form-horizontal.contact-form
       .form-group
         label.col-md-4.control-label for="name" =t('name.title')
         .col-md-8
-          input#name.form-control type="text" name="name" autocomplete='on' placeholder=t('name.placeholder')
+          input#name.form-control type="text" name="name" autocomplete='on' placeholder=t('name.placeholder') required=''
 
       .form-group
         label.col-md-4.control-label for="phone" =t('phone.title')
         .col-md-8
-          input#phone.form-control type="tel" name="tel" inputmode='tel' autocomplete='on' placeholder="0909099099"
+          input#phone.form-control type="tel" name="tel" inputmode='tel' pattern="\d{10}" autocomplete='on' placeholder="0909099099" required=''
 
   .col-md-12
     p.head=t('dates')
     hr
-    form.form-horizontal.contact-form
+    form#date_quantity.form-horizontal.contact-form
       .form-group
         label.col-md-4.control-label for="date" =t('date_picker.title')
         .col-md-8
-          input#date.form-control type="date" name="date" placeholder=t('date.formats.default') value=I18n.l(Date.today + 2)
+          input#date.form-control type="text" name="date" placeholder=t('date.formats.default') value=I18n.l(Date.today + 2) required=''
 
       .form-group
         label.col-md-4.control-label for="quantity" =t('group_size')

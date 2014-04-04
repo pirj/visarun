@@ -1,7 +1,7 @@
 ru:
   date:
     formats:
-      default: "DD-MM-YYYY"
+      default: "%d-%m-%Y"
 
   errors:
     401: Не авторизован

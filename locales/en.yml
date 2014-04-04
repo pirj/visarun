@@ -1,7 +1,7 @@
 en:
   date:
     formats:
-      default: "MM/DD/YYYY"
+      default: "%m/%d/%Y"
 
   errors:
     401: Not autorized
@@ -47,7 +47,7 @@ en:
 
   group_size: "Group size:"
 
-  proceed: "Proceed to checkout"
+  proceed: "Checkout"
 
   success:
     hooray: Success!

@@ -114,18 +114,10 @@ body::after {
   background: url(/img/debut_dark.png);
 }
 
-/* input { */
-/*   border-width: 3pt; */
-/* } */
-
-/* input:invalid { */
-/*   border-bottom-color: red; */
-/* } */
-
-/* input:valid::after { */
-/*   content: '☺'; */
-/*   border-bottom-color: green; */
-/* } */
+input:invalid::after {
+  content: '☹';
+  background-color: blue;
+}
 
 #payment {
   background: url(/img/navy_blue.png);
