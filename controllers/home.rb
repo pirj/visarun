@@ -5,17 +5,18 @@ class Site < Sinatra::Base
   CMD = '_notify-synch'
 
   # TODO: EXTERNALIZE!
-  IDENTITY_TOKEN = 'HHIchSgtCHHXoh5_LY1SKVZhd7le8mUP-Vl9hSetN5X5X0Ngn-eocaTY5XW'
+  IDENTITY_TOKEN = '5Pp5S7K_hhPPaTIQBrsJYiSKFlmN2jlXZ9yzPvV3_cDs0LsJDOmhLpgjAEe'
+  MERCHANT_ID = 'KHGTN6Q5JVNV8'
 
   SUCCESS = 'SUCCESS'
 
   # TODO: EXTERNALIZE or to db
   # FIX: fix Ranong price
-  PRICES = [-1, 1290, 1690, 3490].freeze
+  PRICES = [-1, 1290, 1790, 3690].freeze
   ITEMS = [nil, :ranong, :ranong_andaman, :penang].freeze
 
   get '/' do
-    slim :'home/index'
+    slim :'home/index', locals: {merchant: MERCHANT_ID}
   end
 
   get '/payback' do

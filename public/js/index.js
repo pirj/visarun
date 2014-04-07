@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
     var price = parseInt(selected.query('.price span').innerText)
     var item = selected.querySelector('h3').innerText
     var number = selected.querySelector('p.hidden').innerText
-    var locale = html('#locale span').innerText
+    var locale = html('#locale').innerText
     var group_size = parseInt(html("#contacts input:checked").value)
 
     var date = html("#contacts input#date").value
@@ -36,6 +36,7 @@ window.addEventListener('load', function() {
       script.dataset[name] = attrs[name]
     }
 
-    script.src = "/js/paypal-button.js?merchant=AC65H947H7QAU"
+    var merchant = html('#merchant').innerText
+    script.src = "/js/paypal-button.js?merchant=" + merchant
   })
 })
