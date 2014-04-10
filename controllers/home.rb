@@ -81,6 +81,7 @@ class Site < Sinatra::Base
 
       # TODO: send email receipt
 
+      session[:order_id] = order.id
       slim :'home/successful_payment', locals: { order: order}
     rescue FailedPaymentForRefund => e
       # TODO: store failed payment for later refund etc
@@ -90,5 +91,14 @@ class Site < Sinatra::Base
 
       slim :'home/failed_payment', locals: { text: e.message }
     end
+  end
+
+  post '/pickup_location' do
+    fail 'no order' unless session[:order_id]
+    order = Order.get session[:order_id]
+    fail 'not yours' unless params[:txn_id] == order.txn_id
+    order.pickup_lat = params[:lat]
+    order.pickup_lng = params[:lng]
+    order.save
   end
 end

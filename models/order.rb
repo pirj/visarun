@@ -48,6 +48,9 @@ class Order
   # "John Smith"
   property :leader, String, required: true
 
+  property :pickup_lat, Float
+  property :pickup_lng, Float
+
   property :created_at, DateTime
 
   def item_readable

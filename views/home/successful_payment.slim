@@ -2,8 +2,15 @@
   == slim :'home/nav'
 
 - content_for :js do
+  script src="/js/HTML.min.js"
   script src="/js/cookie-monster.min.js"
+  script src="/js/leaflet.js"
+  script src="/js/route.js"
   script src="/js/successful_payment.js"
+
+
+- content_for :css do
+  link rel="stylesheet" href="/css/leaflet.css"
 
 #success.row
   .col-md-4
@@ -28,3 +35,9 @@
         p
           =t 'success.copy'
           span=order.payer_email
+
+.row
+  #map.col-md-12
+.hidden
+  span#popup=t 'success.location_popup'
+  span#txn_id=order.txn_id

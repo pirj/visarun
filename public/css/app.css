@@ -1,3 +1,4 @@
+/* TODO: split this */
 html, body {
   font-family: 'PT Sans', sans-serif;
 }
@@ -207,4 +208,12 @@ form.paypal-button {
 
 #failure .reason {
   color: red;
+}
+
+#map {
+  height: 300pt;
+}
+
+#popup {
+  font-size: 14pt;
 }

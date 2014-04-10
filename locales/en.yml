@@ -55,6 +55,7 @@ en:
     p2: Meanwhile you can view route map and pick one so the shuttle can pick you up.
     p3: If you have any questions or suggestions, feel free to call us 0835049240.
     copy: "We've sent a copy of this receipt to your email address: "
+    location_popup: Select pickup location
 
   fails:
     general: "The order cannot be processed: "
