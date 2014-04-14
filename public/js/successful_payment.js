@@ -5,12 +5,29 @@ window.addEventListener('load', function() {
   monster.remove('phone')
   monster.remove('name')
 
+  var bounds = L.latLngBounds(
+      L.latLng(7.700104531441816, 97.59017944335936),
+      L.latLng(8.244110057549225, 99.19692993164061)
+    )
+
+  function nearest_map(selected) {
+    return function(latLngs) {
+      return latLngs.reduce(nearest_reduce(selected))
+    }
+  }
+
+  function nearest_reduce(selected) {
+    return function(min, current) {
+      return selected.distanceTo(min) < selected.distanceTo(current) ? min : current
+    }
+  }
+
   var icon = L.icon({
-    iconUrl: 'img/leaflet/marker-icon.png',
-    iconRetinaUrl: 'img/leaflet/marker-icon-2x.png',
+    iconUrl: '/img/leaflet/marker-icon.png',
+    iconRetinaUrl: '/img/leaflet/marker-icon-2x.png',
     iconAnchor: [12, 41],
     popupAnchor: [0, -41],
-    shadowUrl: 'img/leaflet/marker-shadow.png'
+    shadowUrl: '/img/leaflet/marker-shadow.png'
   })
 
   function panToNearest(map, marker) {
@@ -35,7 +52,7 @@ window.addEventListener('load', function() {
   }
 
   function show_map(lat, lng, zoom) {
-    var map = new L.Map('map', {center: new L.LatLng(lat, lng), zoom: zoom, maxBounds: bounds})
+    var map = new L.Map('map', {center: L.latLng(lat, lng), zoom: zoom, maxBounds: bounds})
 
     var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
@@ -64,3 +81,6 @@ window.addEventListener('load', function() {
     show_map(7.822228, 98.340683, 12)
   })
 })
+
+// TODO: http://makinacorpus.github.io/Leaflet.Snap/
+// TODO: http://leaflet.github.io/Leaflet.fullscreen/

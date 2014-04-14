@@ -83,3 +83,8 @@ ru:
   ranong: Ранонг
   ranong_andaman: Ранонг Andaman Club
   penang: Пенанг
+
+  admin:
+    failed_orders: Неудавшиеся заказы (на возврат средств)
+    orders: Заказы
+    tomorrow: Заказы на завтра

@@ -1,6 +1,36 @@
 class Site < Sinatra::Base
-  get '/8abc22fbd33a738170f40d43992336fd' do
-    orders = Order.all order: [:trip_date.desc]
-    slim :'admin/index', locals: {orders: orders}
+  ADMIN_ENTRY = "8abc22fbd33a738170f40d43992336fd".freeze
+
+  def data
+    @orders = Order.all :trip_date.gte => Date.today, :order => [:trip_date.desc]
+    @failed_orders = FailedOrder.all refunded: false, order: [:payment_at.desc]
+    @tomorrow_all = {
+      ranong: Order.all(:trip_date => (Date.today + 1), item: :ranong, :order => [:trip_date.desc]),
+      ranong_andaman: Order.all(:trip_date => (Date.today + 1), item: :ranong_andaman, :order => [:trip_date.desc]),
+      penang: Order.all(:trip_date => (Date.today + 1), item: :penang, :order => [:trip_date.desc])
+    }
   end
+
+  get "/#{ADMIN_ENTRY}" do
+    data
+    slim :'admin/index'
+  end
+
+  get "/#{ADMIN_ENTRY}/orders" do
+    data
+    slim :'admin/orders'
+  end
+
+  get "/#{ADMIN_ENTRY}/failed_orders" do
+    data
+    slim :'admin/failed_orders'
+  end
+
+  get "/#{ADMIN_ENTRY}/tomorrow/:direction" do
+    data
+    @tomorrow = @tomorrow_all[params[:direction].to_sym]
+    slim :'admin/tomorrow'
+  end
+
+  # TODO: pickup map editor https://github.com/scripter-co/leaflet-plotter
 end

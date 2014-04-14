@@ -1,0 +1,28 @@
+- content_for :nav do
+  == slim :'admin/nav'
+
+- content_for :js do
+  script src="/js/HTML.min.js"
+  script src="/js/leaflet.js"
+  script src="/js/admin/tomorrow.js"
+  script
+    | var pickup_points=[
+    -@tomorrow.each do |point|
+      | {lat: 
+      =point.pickup_lat
+      | , lng: 
+      =point.pickup_lng
+      | , leader: "
+      =point.leader
+      | ", phone: "
+      =point.phone
+      | ", quantity: 
+      =point.quantity
+      | },
+    | ]
+
+- content_for :css do
+  link rel="stylesheet" href="/css/leaflet.css"
+
+.row
+  #map.bigger.col-md-12

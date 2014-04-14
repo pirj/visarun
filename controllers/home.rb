@@ -17,8 +17,6 @@ class Site < Sinatra::Base
       session[:order_id] = order.id
       slim :'home/successful_payment', locals: { order: order}
     rescue FailedPaymentForRefund => e
-      # TODO: store failed payment for later refund etc
-
       slim :'home/failed_payment_refund', locals: { text: e.message }
     rescue FailedPayment => e
       slim :'home/failed_payment', locals: { text: e.message }

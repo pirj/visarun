@@ -83,7 +83,8 @@ class Order
 
     data[:payer_email] = URI.decode_www_form_component data[:payer_email]
 
-    order = Order.new({ txn_id: data[:txn_id],
+    order = Order.new({
+      txn_id: data[:txn_id],
       gross: data[:mc_gross],
       currency: data[:mc_currency],
       quantity: data[:quantity],
@@ -102,5 +103,20 @@ class Order
     fail FailedPaymentForRefund, order.errors.inspect unless order.save
 
     order
+  rescue FailedPaymentForRefund => e
+    failed = FailedOrder.create({
+      txn_id: data[:txn_id],
+      gross: data[:mc_gross],
+      currency: data[:mc_currency],
+
+      payer_id: data[:payer_id],
+      payment_at: data[:payment_date],
+
+      payer_first_name: data[:first_name],
+      payer_last_name: data[:last_name],
+      payer_email: data[:payer_email]
+    })
+
+    fail FailedPaymentForRefund, e.message
   end
 end

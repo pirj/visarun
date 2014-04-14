@@ -214,6 +214,18 @@ form.paypal-button {
   height: 300pt;
 }
 
+#map.bigger {
+  height: 600pt;
+}
+
 #popup {
   font-size: 14pt;
+}
+
+.item {
+  margin: 20px;
+  margin-left: 0;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
 }

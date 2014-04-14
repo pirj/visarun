@@ -12,11 +12,10 @@ html
     == yield_content :css
 
   body
+    == yield_content :nav
+
     .container
       == yield
 
-      hr
-
-      == slim :footer
-
+    == slim :footer
     == yield_content :js

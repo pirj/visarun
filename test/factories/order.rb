@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :order do
-    txn_id "16R52395G74740448"
-    gross 1290
+    txn_id { "16R52395G#{rand(1000000..99999999)}" }
+    quantity { rand(1..3) }
+    gross { 1290 * quantity }
     currency "THB"
-    quantity 1
     item :ranong
     payer_id "XSR2NSLSMU6PQ"
     payment_at Time.now
@@ -11,10 +11,10 @@ FactoryGirl.define do
     payer_last_name { Faker::Name.last_name }
     payer_email { Faker::Internet.email }
     residence_country "RU"
-    trip_date { Date.today + 2 }
-    phone { Faker::PhoneNumber.phone_number }
+    trip_date { Date.today + rand(2..10) }
+    phone { "08#{rand(10000000..99999999)}" }
     leader { Faker::Name.name }
-    pickup_lat { Faker::Geolocation.lat }
-    pickup_lng { Faker::Geolocation.lng }
+    pickup_lat { rand(7.87..7.94) }
+    pickup_lng { rand(98.3..98.4) }
   end
 end

@@ -84,3 +84,8 @@ en:
   ranong: Ranong
   ranong_andaman: Ranong Andaman Club
   penang: Penang
+
+  admin:
+    failed_orders: Failed orders (for refund)
+    orders: Orders
+    tomorrow: Orders for tomorrow

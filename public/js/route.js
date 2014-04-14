@@ -195,20 +195,3 @@ var route_multiline =
       L.latLng(7.98783763171435, 98.31527709960936)
     ]
   ]
-
-var bounds = L.latLngBounds(
-    L.latLng(7.700104531441816, 97.59017944335936),
-    L.latLng(8.244110057549225, 99.19692993164061)
-  )
-
-function nearest_map(selected) {
-  return function(latLngs) {
-    return latLngs.reduce(nearest_reduce(selected))
-  }
-}
-
-function nearest_reduce(selected) {
-  return function(min, current) {
-    return selected.distanceTo(min) < selected.distanceTo(current) ? min : current
-  }
-}

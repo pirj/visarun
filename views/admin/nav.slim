@@ -1,0 +1,22 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    ul.nav.navbar-nav
+      li
+        a href="/#{ADMIN_ENTRY}/orders"
+          span=t('admin.orders')
+          span.badge.pull-right=@orders.count
+      li
+        a href="/#{ADMIN_ENTRY}/failed_orders"
+          span=t('admin.failed_orders')
+          span.badge.pull-right=@failed_orders.count
+
+      -[:ranong, :ranong_andaman, :penang].each do |direction|
+        li
+          a href="/#{ADMIN_ENTRY}/tomorrow/#{direction}"
+            span=t('admin.tomorrow')
+            |  
+            span=t(direction)
+            span.badge.pull-right=@tomorrow_all[direction].count
+
+hr
+hr
