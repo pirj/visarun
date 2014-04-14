@@ -60,6 +60,3 @@ class Site < Sinatra::Base
     end
   end
 end
-
-class FailedPayment < StandardError; end
-class FailedPaymentForRefund < StandardError; end

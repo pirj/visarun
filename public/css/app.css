@@ -194,8 +194,8 @@ form.paypal-button {
   padding: 10pt;
   margin-top: 20pt;
   text-align: justify;
-  background-color: #a1a1a1;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 #success .outline ul {

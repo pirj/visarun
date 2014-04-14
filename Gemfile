@@ -29,10 +29,9 @@ group :production do
   gem 'pg'
 end
 
-group :development do
+group :development, :test do
   gem 'dm-sqlite-adapter'
   gem 'pry'
-  gem 'pry-rescue'
 end
 
 group :test do
