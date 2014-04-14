@@ -21,7 +21,7 @@ window.addEventListener('load', function() {
  // FIXME: var
   map = new L.Map('map', {center: L.latLng(lat, lng), zoom: zoom, maxBounds: bounds})
 
-  var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  var osm = new L.TileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
     maxZoom: 15
   })
