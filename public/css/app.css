@@ -222,10 +222,27 @@ form.paypal-button {
   font-size: 14pt;
 }
 
-.item {
-  margin: 20px;
-  margin-left: 0;
-  padding: 10px;
+.leaflet-minimap-container {
+  margin: 10px;
   border: 1px solid black;
+  display: block;
+  height: 100pt;
+  width: 250pt;
+}
+
+.leaflet-right .leaflet-minimap-container {
+  margin-left: 0;
+}
+
+.leaflet-left .leaflet-minimap-container {
+  margin-right: 0;
+}
+
+.leaflet-minimap-container .leaflet-control-attribution, .leaflet-minimap-container .leaflet-control-zoom {
+  display: none;
+}
+
+.leaflet-minimap-container .leaflet-control-legend-label {
   background-color: white;
+  opacity: 0.8;
 }

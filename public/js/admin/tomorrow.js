@@ -18,30 +18,70 @@ window.addEventListener('load', function() {
       lng = 98.340683,
       zoom = 11
 
- // FIXME: var
-  map = new L.Map('map', {center: L.latLng(lat, lng), zoom: zoom, maxBounds: bounds})
+  var map = L.map('map', {center: L.latLng(lat, lng), zoom: zoom, maxBounds: bounds})
 
-  var osm = new L.TileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+  var osm = L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
     maxZoom: 15
   })
   map.addLayer(osm)
 
-  var container = map.getContainer()
 
-  var pane = L.DomUtil.create('div', 'leaflet-control-container', container)
-  var legend = L.DomUtil.create('div', 'leaflet-top leaflet-right', pane)
+  function show_minimap(legend) {
+    return function(point) {
+      point.container = L.DomUtil.create('div', 'leaflet-minimap-container', legend)
 
-  pickup_points
-    .sort(function(a, b) { return b.lat - a.lat })
-    .map(function(point) {
-      point.item = L.DomUtil.create('div', 'item', legend)
-      point.item.innerHTML = '<b class="badge">' + point.quantity + '</b> ' + point.leader + ', ' + point.phone
+      var center = L.latLng(point.lat, point.lng)
+      var minimap = L.map(point.container, {center: center, zoom: 15, maxBounds: bounds})
+
+      var osm = L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // TODO: didn't work, had to hide in CSS
+        attributionControl: false,
+        zoomControl: false
+      })
+      minimap.addLayer(osm)
+
+      L.marker(center, {icon: icon}).addTo(minimap)
+
+      var minimap_label = L.DomUtil.create('div', 'leaflet-control-legend-label', minimap.getContainer())
+      minimap_label.innerHTML = '<b class="badge">' + point.quantity + '</b> ' + point.leader + ', ' + point.phone
+
       return point
-    }).map(function(point) {
+    }
+  }
+
+  // TODO: Refactor to an L.control, redraw polylines on zoom/pan
+  function draw_connectors(legend, offset) {
+    return function(point) {
       L.polyline([
           L.latLng(point.lat, point.lng)
-        , map.containerPointToLatLng(L.point(legend.offsetLeft, point.item.offsetTop + point.item.offsetHeight / 2))
+        , map.containerPointToLatLng(L.point(offset, point.container.offsetTop + point.container.offsetHeight / 2))
         ], {color: 'black'}).addTo(map)
-    })
+    }
+  }
+
+  var container = map.getContainer()
+
+  // TODO: Refactor to L.control
+  var pane = L.DomUtil.create('div', 'leaflet-control-container', container)
+  var legend_right = L.DomUtil.create('div', 'leaflet-top leaflet-right', pane)
+  var legend_left = L.DomUtil.create('div', 'leaflet-top leaflet-left', pane)
+
+  var median = pickup_points.sort(function(a, b) { return b.lng - a.lng })[pickup_points.length / 2].lng
+
+  pickup_points.reduce(function(acc, point) {
+    if(point.lng <= median) acc.unshift(point)
+    return acc
+  }, [])
+    .sort(function(a, b) { return b.lat - a.lat })
+    .map(show_minimap(legend_left))
+    .map(draw_connectors(legend_left, legend_left.offsetLeft + legend_left.offsetWidth))
+
+  pickup_points.reduce(function(acc, point) {
+    if(point.lng > median) acc.unshift(point)
+    return acc
+  }, [])
+    .sort(function(a, b) { return b.lat - a.lat })
+    .map(show_minimap(legend_right))
+    .map(draw_connectors(legend_right, legend_right.offsetLeft))
 })

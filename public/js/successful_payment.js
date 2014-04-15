@@ -52,10 +52,10 @@ window.addEventListener('load', function() {
   }
 
   function show_map(lat, lng, zoom) {
-    var map = new L.Map('map', {center: L.latLng(lat, lng), zoom: zoom, maxBounds: bounds})
+    var map = L.map('map', {center: L.latLng(lat, lng), zoom: zoom, maxBounds: bounds})
 
-    var osm = new L.TileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+    var osm = L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
       maxZoom: 17
     })
     map.addLayer(osm)
