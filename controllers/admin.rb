@@ -16,6 +16,24 @@ class Site < Sinatra::Base
     slim :'admin/index'
   end
 
+  get "/#{ADMIN_ENTRY}/11" do
+    EM.defer do
+      email = 'pirjsuka@gmail.com'
+
+      Mail.new do
+        from     'visarun.co.th@gmail.com'
+        to       email
+        subject  'Test'
+
+        html_part do
+          content_type 'text/html; charset=UTF-8'
+          body     "Test test"
+        end
+      end.deliver
+    end
+    body "sent!"
+  end
+
   get "/#{ADMIN_ENTRY}/orders" do
     data
     slim :'admin/orders'

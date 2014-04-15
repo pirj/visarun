@@ -24,6 +24,8 @@ gem 'dm-aggregates'
 
 gem 'faraday'
 
+gem 'mail'
+
 group :production do
   gem 'dm-postgres-adapter'
   gem 'pg'
