@@ -56,6 +56,9 @@ en:
     p3: If you have any questions or suggestions, feel free to call us 0835049240.
     copy: "We've sent a copy of this receipt to your email address: "
     location_popup: Select pickup location
+    payment_received: Visa run payment received
+
+  reminder: "Do not forget, tomorrow is your visa run!"
 
   fails:
     general: "The order cannot be processed: "

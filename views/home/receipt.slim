@@ -1,0 +1,13 @@
+.row
+  h1=t 'success.hooray'
+  p=t 'success.p1'
+  p=t 'success.p2'
+  p=t 'success.p3'
+.row.receipt
+  -[[:trip_date, :item_readable, :quantity, :gross, :leader, :phone], [:payer_first_name, :payer_last_name, :payer_email, :payer_id, :txn_id, :payment_at]].each do |group|
+    .col-md-6
+      ul
+        -group.each do |field|
+          li
+            span=t "receipt.#{field}"
+            =order.send field

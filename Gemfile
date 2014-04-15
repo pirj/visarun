@@ -23,6 +23,9 @@ gem 'dm-types'
 gem 'dm-aggregates'
 
 gem 'faraday'
+gem 'em-http-request'
+
+gem 'mail'
 
 group :production do
   gem 'dm-postgres-adapter'

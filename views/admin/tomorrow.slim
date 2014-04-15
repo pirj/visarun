@@ -18,7 +18,11 @@
       =point.phone
       | ", quantity: 
       =point.quantity
-      | },
+      | , locale: "
+      =point.locale
+      | ", residence: "
+      =point.residence_country
+      | "},
     | ]
 
 - content_for :css do

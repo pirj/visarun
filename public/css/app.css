@@ -190,7 +190,7 @@ form.paypal-button {
   max-width: 70%;
 }
 
-#success .outline {
+#success .receipt {
   padding: 10pt;
   margin-top: 20pt;
   text-align: justify;
@@ -198,7 +198,7 @@ form.paypal-button {
   color: black;
 }
 
-#success .outline ul {
+#success .receipt ul {
   list-style-type: none;
 }
 

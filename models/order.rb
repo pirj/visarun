@@ -9,11 +9,15 @@ class Order
   property :quantity, Integer, required: true # 3
   property :item, Enum[:ranong, :ranong_andaman, :penang], required: true # 1 for Ranong, 2 for Ranong Andaman, 3 for Penang
   property :payer_id, String, required: true # "XSR2NSLSMU6PQ"
+  # FIXME: always 00:00:00
   property :payment_at, Time, required: true # Time
   property :payer_first_name, String, required: true # "FILIPP"
   property :payer_last_name, String, required: true # "PIROZHKOV"
   property :payer_email, String, required: true # "pirjsuka@gmail.com"
   property :residence_country, String, required: true # "RU"
+
+  ## Locale, from browser
+  property :locale, String, required: true, default: "EN"
 
   ## This is coming from web form
   property :trip_date, Date, required: true # Date 2014-03-13
@@ -49,9 +53,10 @@ class Order
   PAYPAL_ITEMS = [nil, :ranong, :ranong_andaman, :penang].freeze
 
   def self.load_paypal txn_id, cookies
+    # TODO: move to configure do / default_connection_options
     conn = Faraday.new(:url => PAYPAL_BASE) do |faraday|
-      faraday.request  :url_encoded
-      faraday.adapter  Faraday.default_adapter
+      faraday.request :url_encoded
+      faraday.adapter :em_http
     end
 
     response = conn.post PAYPAL_PATH, {cmd: CMD, tx: txn_id, at: IDENTITY_TOKEN}
@@ -97,7 +102,8 @@ class Order
       residence_country: data[:residence_country],
       trip_date: Date.strptime(cookies[:date], I18n.t("date.formats.default")),
       phone: cookies[:phone],
-      leader: cookies[:name]
+      leader: cookies[:name],
+      locale: I18n.locale
     })
 
     fail FailedPaymentForRefund, order.errors.inspect unless order.save

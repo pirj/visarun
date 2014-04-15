@@ -75,6 +75,7 @@ window.addEventListener('load', function() {
     panToNearest(map, pickup)
   }
 
+// TODO: show warning to allow or deny map!
   navigator.geolocation.getCurrentPosition(function(position) {
     show_map(position.coords.latitude,  position.coords.longitude, 15)
   }, function(position) {

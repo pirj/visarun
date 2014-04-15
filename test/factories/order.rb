@@ -11,6 +11,7 @@ FactoryGirl.define do
     payer_last_name { Faker::Name.last_name }
     payer_email { Faker::Internet.email }
     residence_country "RU"
+    locale "RU"
     trip_date { Date.today + rand(2..10) }
     phone { "08#{rand(10000000..99999999)}" }
     leader { Faker::Name.name }

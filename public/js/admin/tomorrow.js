@@ -44,7 +44,7 @@ window.addEventListener('load', function() {
       L.marker(center, {icon: icon}).addTo(minimap)
 
       var minimap_label = L.DomUtil.create('div', 'leaflet-control-legend-label', minimap.getContainer())
-      minimap_label.innerHTML = '<b class="badge">' + point.quantity + '</b> ' + point.leader + ', ' + point.phone
+      minimap_label.innerHTML = '<b class="badge">' + point.quantity + '</b> ' + point.leader + ', ' + point.phone + ' (' + point.locale + ', ' + point.residence + ')'
 
       return point
     }

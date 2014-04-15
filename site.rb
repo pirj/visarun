@@ -59,4 +59,22 @@ class Site < Sinatra::Base
       I18n.t token
     end
   end
+
+  configure do
+    set :threaded, false
+  end
+
+  # TODO: externalize
+  configure do
+    Mail.defaults do
+      delivery_method :smtp, {
+        address: 'smtp.gmail.com',
+        port: 587,
+        authentication: 'plain',
+        user_name: 'visarun.co.th@gmail.com',
+        password: 'ATu74dfimAkY',
+        enable_starttls_auto: true
+      }
+    end
+  end
 end
