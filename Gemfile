@@ -27,6 +27,8 @@ gem 'em-http-request'
 
 gem 'mail'
 
+gem 'mail'
+
 group :production do
   gem 'dm-postgres-adapter'
   gem 'pg'
