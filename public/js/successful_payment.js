@@ -78,6 +78,7 @@ window.addEventListener('load', function() {
   navigator.geolocation.getCurrentPosition(function(position) {
     show_map(position.coords.latitude,  position.coords.longitude, 15)
   }, function(position) {
+    // TODO: if pickup point is defined already, use it. use chalong ring otherwise
     show_map(7.822228, 98.340683, 12)
   })
 })
