@@ -1,24 +1,19 @@
 require './common'
 
-require 'sinatra/contrib'
-require 'sinatra/streaming'
 require 'sinatra/content_for'
-# require 'sinatra/reloader' if development?
 
 require 'i18n'
 require 'i18n/backend/fallbacks'
 
 Dir['controllers/*.rb'].each { |file| require File.join Dir.pwd, file }
 
-# environment = development? ? :development : production? ? :production : :test
-# Bundler.require :development if development?
+Bundler.require :development if development?
 
 class Site < Sinatra::Base
   register Sinatra::Contrib
   register Sinatra::Flash
 
   helpers Sinatra::ContentFor
-  helpers Sinatra::Streaming
 
   use Rack::Session::Moneta,
     store: Moneta.new(:DataMapper, setup: (ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.db"))
@@ -37,13 +32,6 @@ class Site < Sinatra::Base
     error(code) do
       slim :"errors/#{code}"
     end
-  end
-
-  configure :development do
-    register Sinatra::Reloader
-    also_reload './*.rb'
-    also_reload './models/*.rb'
-    also_reload './controllers/*.rb'
   end
 
   def current_identity
