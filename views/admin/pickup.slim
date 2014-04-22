@@ -8,6 +8,9 @@
   script src="/js/Leaflet.fullscreen.min.js"
   script src="/js/hsl.js"
   script src="/js/admin/pickup.js"
+  script
+    | var routes=
+    == @routes.map { |route| {id: route.id, vertices: route.vertices.map { |vertex| {lat: vertex.lat, lng: vertex.lng} }} }.to_json
 
 - content_for :css do
   link rel="stylesheet" href="/css/leaflet.css"

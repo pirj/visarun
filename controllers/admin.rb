@@ -1,3 +1,5 @@
+require 'json'
+
 class Site < Sinatra::Base
   ADMIN_ENTRY = "8abc22fbd33a738170f40d43992336fd".freeze
 
@@ -52,15 +54,34 @@ class Site < Sinatra::Base
 
   get "/#{ADMIN_ENTRY}/pickup" do
     data
+    @routes = Route.all
     slim :'admin/pickup'
   end
 
   post "/#{ADMIN_ENTRY}/pickup/add" do
+    lat_lngs = JSON.parse params[:vertices]
+    fail "No vertices" if lat_lngs.empty?
+
+    route = Route.new
+    lat_lng = lat_lngs.shift
+    vertex0 = Vertex.new route: route, lat: lat_lng['lat'], lng: lat_lng['lng']
+    route.vertex0 = vertex0
+
+    lat_lngs.inject(vertex0) do |previous, lat_lng|
+      Vertex.create route: route, lat: lat_lng['lat'], lng: lat_lng['lng'], previous: previous
+    end
+
+    fail route.errors.inspect unless route.save
+
+    body route.id.to_s
+  end
+
+  post "/#{ADMIN_ENTRY}/pickup/update" do
     STDOUT.puts params.inspect
 
   end
 
-  post "/#{ADMIN_ENTRY}/pickup/update" do
+  delete "/#{ADMIN_ENTRY}/pickup" do
     STDOUT.puts params.inspect
 
   end

@@ -60,6 +60,7 @@ window.addEventListener('load', function() {
     })
     map.addLayer(osm)
 
+  // FIXME: display route from DB
     var route = L.multiPolyline(route_multiline , {color: 'green', dashArray: "10, 10"})
       .addTo(map)
 

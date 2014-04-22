@@ -23,8 +23,8 @@ window.addEventListener('load', function() {
   })
   map.addLayer(osm)
 
-  var drawnItems = new L.FeatureGroup()
-  map.addLayer(drawnItems)
+  var route_layers = new L.FeatureGroup()
+  map.addLayer(route_layers)
 
   // Initialise the draw control and pass it the FeatureGroup of editable layers
   var drawControl = new L.Control.Draw({
@@ -34,7 +34,7 @@ window.addEventListener('load', function() {
       circle: false,
       marker: false,
       polyline: {
-        // FIXME: false fires stupid errors
+        // TODO: false fires stupid errors
         // allowIntersection: false,
         shapeOptions: {
           color: "#33a"
@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
       }
     },
     edit: {
-      featureGroup: drawnItems
+      featureGroup: route_layers
     }
   })
   map.addControl(drawControl)
@@ -56,10 +56,16 @@ window.addEventListener('load', function() {
     }
   })()
 
+  routes.map(function(route) {
+    route_layers.addLayer(
+      L.polyline(route.vertices, {color: next_color()})
+    )
+  })
+
   map.on('draw:created', function (e) {
     var layer = e.layer
 
-    drawnItems.addLayer(layer)
+    route_layers.addLayer(layer)
     layer.setStyle({color: next_color()})
 
     var xhr = new XMLHttpRequest()

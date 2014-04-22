@@ -6,23 +6,10 @@
   script src="/js/leaflet.js"
   script src="/js/admin/tomorrow.js"
   script
+    // TODO: rework like in pickup.slim
     | var pickup_points=[
     -@tomorrow.each do |point|
-      | {lat: 
-      =point.pickup_lat
-      | , lng: 
-      =point.pickup_lng
-      | , leader: "
-      =point.leader
-      | ", phone: "
-      =point.phone
-      | ", quantity: 
-      =point.quantity
-      | , locale: "
-      =point.locale
-      | ", residence: "
-      =point.residence_country
-      | "},
+      | {lat: #{point.pickup_lat}, lng: #{point.pickup_lng}, leader: "#{point.leader}", phone: "#{point.phone}", quantity: #{point.quantity}, locale: "#{point.locale}", residence: "#{point.residence_country}"},
     | ]
 
 - content_for :css do
