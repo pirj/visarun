@@ -50,5 +50,18 @@ class Site < Sinatra::Base
     slim :'admin/tomorrow'
   end
 
-  # TODO: pickup map editor https://github.com/scripter-co/leaflet-plotter
+  get "/#{ADMIN_ENTRY}/pickup" do
+    data
+    slim :'admin/pickup'
+  end
+
+  post "/#{ADMIN_ENTRY}/pickup/add" do
+    STDOUT.puts params.inspect
+
+  end
+
+  post "/#{ADMIN_ENTRY}/pickup/update" do
+    STDOUT.puts params.inspect
+
+  end
 end

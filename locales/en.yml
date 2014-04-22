@@ -91,4 +91,5 @@ en:
   admin:
     failed_orders: Failed orders (for refund)
     orders: Orders
-    tomorrow: Orders for tomorrow
+    tomorrow: Tomorrow
+    pickup: Pickup locations editor

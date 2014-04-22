@@ -1,0 +1,18 @@
+- content_for :nav do
+  == slim :'admin/nav'
+
+- content_for :js do
+  script src="/js/HTML.min.js"
+  script src="/js/leaflet.js"
+  script src="/js/leaflet.draw.js"
+  script src="/js/Leaflet.fullscreen.min.js"
+  script src="/js/hsl.js"
+  script src="/js/admin/pickup.js"
+
+- content_for :css do
+  link rel="stylesheet" href="/css/leaflet.css"
+  link rel="stylesheet" href="/css/leaflet.draw.css"
+  link rel="stylesheet" href="/css/leaflet.fullscreen.css"
+
+.row
+  #map.bigger.col-md-12
