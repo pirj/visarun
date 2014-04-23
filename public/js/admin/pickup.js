@@ -53,13 +53,13 @@ window.addEventListener('load', function() {
     return function() {
       hue += 40
       if(hue > 360) hue -= 360
-      return hslToRgb(hue, 100, 50)
+      return hslToRgb(hue, 100, 45)
     }
   })()
 
   routes.map(function(route) {
     route_layers.addLayer(
-      L.polyline(route.vertices, {id: route.id, title: route.title, color: next_color(), dashArray: "10, 10"})
+      L.polyline(route.vertices, {id: route.id, title: route.title, opacity: 1, color: next_color(), dashArray: "10, 10"})
     )
   })
 
@@ -69,7 +69,7 @@ window.addEventListener('load', function() {
     var layer = e.layer
 
     route_layers.addLayer(layer)
-    layer.setStyle({color: next_color(), dashArray: "10, 10"})
+    layer.setStyle({opacity: 1, color: next_color(), dashArray: "10, 10"})
 
     var xhr = new XMLHttpRequest()
     xhr.open('post', 'pickup/add', true)
