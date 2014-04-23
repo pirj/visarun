@@ -57,6 +57,8 @@ en:
     copy: "We've sent a copy of this receipt to your email address: "
     location_popup: Select pickup location
     payment_received: Visa run payment received
+    map: Please allow us to detect your location
+    skip_location: Skip location detection
 
   reminder: "Do not forget, tomorrow is your visa run!"
 

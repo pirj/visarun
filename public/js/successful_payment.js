@@ -41,17 +41,18 @@ window.addEventListener('load', function() {
 
     map.panTo(nearest)
 
-    var txn_id = html('#txn_id').innerText
     var xhr = new XMLHttpRequest()
     xhr.open('post', 'pickup_location', true)
     var data = new FormData()
     data.append('txn_id', txn_id)
-    data.append('lat', nearest.lat)
-    data.append('lng', nearest.lng)
+    data.append('lat', nearest[0])
+    data.append('lng', nearest[1])
     xhr.send(data)
   }
 
   function show_map(lat, lng, zoom) {
+    html('.location_warning').remove()
+
     var map = L.map('map', {
       center: L.latLng(lat, lng),
       zoom: zoom,
@@ -74,27 +75,32 @@ window.addEventListener('load', function() {
       )
     })
 
-    var pickup = L.marker([lat, lng], {
+    pickup = L.marker([lat, lng], {
       icon: icon,
       draggable: true
     })
       .addTo(map)
       .addEventListener('dragend', function() { panToNearest(map, pickup) })
       .bindPopup(document.getElementById('popup'), { closeButton: false })
-        .openPopup()
 
     panToNearest(map, pickup)
+
+    // TODO: hack. somehow popup does not open right away
+    setTimeout(function() { pickup.openPopup() }, 1000)
   }
 
-// TODO: show warning to allow or deny map!
-  navigator.geolocation.getCurrentPosition(function(position) {
-    // FIXME:
-    //TODO: pan to loaded unless null
+  if(pickup.lat && pickup.lng) {
+    show_map(pickup.lat, pickup.lng, 13)
+  } else {
+    html('#skip_location').addEventListener('click', function(e) {
+      show_map(7.822228, 98.340683, 10)
+      e.preventDefault()
+    })
 
-    show_map(7.822228, 98.340683, 12)
-    // show_map(position.coords.latitude,  position.coords.longitude, 15)
-  }, function(position) {
-    // TODO: if pickup point is defined already, use it. use chalong ring otherwise
-    show_map(7.822228, 98.340683, 12)
-  })
+    navigator.geolocation.getCurrentPosition(function(position) {
+      show_map(position.coords.latitude,  position.coords.longitude, 13)
+    }, function(position) {
+      show_map(7.822228, 98.340683, 10)
+    })
+  }
 })

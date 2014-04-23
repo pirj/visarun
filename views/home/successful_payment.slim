@@ -7,6 +7,10 @@
   script
     | var routes=
     == @routes.map { |route| route.vertices.map { |vertex| [vertex.lat, vertex.lng] } }.to_json
+  script
+    | var pickup={lat: #{order.pickup_lat || 'null'}, lng: #{order.pickup_lng || 'null'}}
+  script
+    | var txn_id="#{order.txn_id}"
 
 - content_for :css do
   link rel="stylesheet" href="/css/leaflet.css"
@@ -26,6 +30,9 @@
 
 .row
   #map.col-md-12
+    .location_warning
+      h1=t 'success.map'
+      a href='#' id='skip_location' =t('success.skip_location')
+
 .hidden
   span#popup=t 'success.location_popup'
-  span#txn_id=order.txn_id

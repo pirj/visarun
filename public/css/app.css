@@ -246,3 +246,8 @@ form.paypal-button {
   background-color: white;
   opacity: 0.8;
 }
+
+.location_warning {
+  background-color: #f44;
+  padding: 10pt;
+}
