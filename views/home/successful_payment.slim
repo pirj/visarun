@@ -2,12 +2,15 @@
   script src="/js/HTML.min.js"
   script src="/js/cookie-monster.min.js"
   script src="/js/leaflet.js"
-  // FIXME: display route from DB
-  script src="/js/route.js"
+  script src="/js/Leaflet.fullscreen.min.js"
   script src="/js/successful_payment.js"
+  script
+    | var routes=
+    == @routes.map { |route| route.vertices.map { |vertex| [vertex.lat, vertex.lng] } }.to_json
 
 - content_for :css do
   link rel="stylesheet" href="/css/leaflet.css"
+  link rel="stylesheet" href="/css/leaflet.fullscreen.css"
 
 #success.row
   .col-md-4

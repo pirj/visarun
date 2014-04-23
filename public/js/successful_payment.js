@@ -32,7 +32,7 @@ window.addEventListener('load', function() {
 
   function panToNearest(map, marker) {
     var selected = marker.getLatLng()
-    var nearest = route_multiline
+    var nearest = routes
       .map(nearest_map(selected))
       .reduce(nearest_reduce(selected))
 
@@ -52,7 +52,12 @@ window.addEventListener('load', function() {
   }
 
   function show_map(lat, lng, zoom) {
-    var map = L.map('map', {center: L.latLng(lat, lng), zoom: zoom, maxBounds: bounds})
+    var map = L.map('map', {
+      center: L.latLng(lat, lng),
+      zoom: zoom,
+      maxBounds: bounds,
+      fullscreenControl: true
+    })
 
     var osm = L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
@@ -60,9 +65,14 @@ window.addEventListener('load', function() {
     })
     map.addLayer(osm)
 
-  // FIXME: display route from DB
-    var route = L.multiPolyline(route_multiline , {color: 'green', dashArray: "10, 10"})
-      .addTo(map)
+    var route_layers = new L.FeatureGroup()
+    map.addLayer(route_layers)
+
+    routes.map(function(route) {
+      route_layers.addLayer(
+        L.polyline(route, {color: 'blue', dashArray: "10, 10"})
+      )
+    })
 
     var pickup = L.marker([lat, lng], {
       icon: icon,
@@ -78,12 +88,13 @@ window.addEventListener('load', function() {
 
 // TODO: show warning to allow or deny map!
   navigator.geolocation.getCurrentPosition(function(position) {
-    show_map(position.coords.latitude,  position.coords.longitude, 15)
+    // FIXME:
+    //TODO: pan to loaded unless null
+
+    show_map(7.822228, 98.340683, 12)
+    // show_map(position.coords.latitude,  position.coords.longitude, 15)
   }, function(position) {
     // TODO: if pickup point is defined already, use it. use chalong ring otherwise
     show_map(7.822228, 98.340683, 12)
   })
 })
-
-// TODO: http://makinacorpus.github.io/Leaflet.Snap/
-// TODO: http://leaflet.github.io/Leaflet.fullscreen/

@@ -60,6 +60,8 @@ class Site < Sinatra::Base
         end
       end
 
+      @routes = Route.all
+
       session[:order_id] = order.id
       slim :'home/successful_payment', locals: { order: order}
     rescue FailedPaymentForRefund => e

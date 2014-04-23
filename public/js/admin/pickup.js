@@ -47,6 +47,7 @@ window.addEventListener('load', function() {
   })
   map.addControl(drawControl)
 
+  // TODO: extract
   var next_color = (function() {
     var hue = 0
     return function() {
@@ -58,7 +59,7 @@ window.addEventListener('load', function() {
 
   routes.map(function(route) {
     route_layers.addLayer(
-      L.polyline(route.vertices, {color: next_color()})
+      L.polyline(route.vertices, {color: next_color(), dashArray: "10, 10"})
     )
   })
 
@@ -66,7 +67,7 @@ window.addEventListener('load', function() {
     var layer = e.layer
 
     route_layers.addLayer(layer)
-    layer.setStyle({color: next_color()})
+    layer.setStyle({color: next_color(), dashArray: "10, 10"})
 
     var xhr = new XMLHttpRequest()
     xhr.open('post', 'pickup/add', true)
