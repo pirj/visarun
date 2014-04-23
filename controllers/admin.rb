@@ -77,12 +77,29 @@ class Site < Sinatra::Base
   end
 
   post "/#{ADMIN_ENTRY}/pickup/update" do
-    STDOUT.puts params.inspect
+    routes = JSON.parse params[:routes]
+    routes.each do |r|
+      route = Route.get r['id']
+      route.vertices.destroy
+      lat_lngs = r['vertices']
+      lat_lng = lat_lngs.shift
+      vertex0 = Vertex.new route: route, lat: lat_lng['lat'], lng: lat_lng['lng']
+      route.vertex0 = vertex0
+      route.save!
 
+      lat_lngs.inject(vertex0) do |previous, lat_lng|
+        Vertex.create route: route, lat: lat_lng['lat'], lng: lat_lng['lng'], previous: previous
+      end
+    end
+
+    status 200
   end
 
   delete "/#{ADMIN_ENTRY}/pickup" do
-    STDOUT.puts params.inspect
+    route_ids = JSON.parse params[:routes]
+    Route.all(id: route_ids).vertices.destroy
+    Route.all(id: route_ids).destroy
 
+    status 200
   end
 end

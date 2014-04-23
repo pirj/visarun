@@ -59,9 +59,11 @@ window.addEventListener('load', function() {
 
   routes.map(function(route) {
     route_layers.addLayer(
-      L.polyline(route.vertices, {color: next_color(), dashArray: "10, 10"})
+      L.polyline(route.vertices, {id: route.id, title: route.title, color: next_color(), dashArray: "10, 10"})
     )
   })
+
+  // TODO: display legend and pick a name in legend
 
   map.on('draw:created', function (e) {
     var layer = e.layer
@@ -75,18 +77,30 @@ window.addEventListener('load', function() {
     data.append('vertices', JSON.stringify( layer.getLatLngs() ))
     xhr.send(data)
 
-    // TODO: display legend
-    // TODO: pick a name in legend
+    // TODO: add to legend
   })
 
   map.on('draw:edited', function (e) {
-    var layers = e.layers
-    layers.eachLayer(function (layer) {
-      //do whatever you want, most likely save back to db
+    var layers = e.layers.getLayers().map(function(layer) {
+      return {id: layer.options.id, vertices: layer.getLatLngs()}
     })
+
+    var xhr = new XMLHttpRequest()
+    xhr.open('post', 'pickup/update', true)
+    var data = new FormData()
+    data.append('routes', JSON.stringify( layers ))
+    xhr.send(data)
   })
 
-  map.on('draw:deleted', function (layer) {
-    console.log(e)
+  map.on('draw:deleted', function (e) {
+    var layers = e.layers.getLayers().map(function(layer) {
+      return layer.options.id
+    })
+
+    var xhr = new XMLHttpRequest()
+    xhr.open('delete', 'pickup', true)
+    var data = new FormData()
+    data.append('routes', JSON.stringify( layers ))
+    xhr.send(data)
   })
 })
