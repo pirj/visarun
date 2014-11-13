@@ -67,7 +67,7 @@ window.addEventListener('load', function() {
   var legend_right = L.DomUtil.create('div', 'leaflet-top leaflet-right', pane)
   var legend_left = L.DomUtil.create('div', 'leaflet-top leaflet-left', pane)
 
-  var median = pickup_points.sort(function(a, b) { return b.lng - a.lng })[pickup_points.length / 2].lng
+  var median = pickup_points.sort(function(a, b) { return b.lng - a.lng })[Math.floor(pickup_points.length / 2)].lng
 
   pickup_points.reduce(function(acc, point) {
     if(point.lng <= median) acc.unshift(point)
