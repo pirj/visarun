@@ -49,7 +49,7 @@ class Order
   IDENTITY_TOKEN = '5Pp5S7K_hhPPaTIQBrsJYiSKFlmN2jlXZ9yzPvV3_cDs0LsJDOmhLpgjAEe'.freeze
 
   # TODO: EXTERNALIZE or to db
-  PRICES = [-1, 1290, 1790, 3690].freeze
+  PRICES = [-1, 1, 12, 20].freeze
   PAYPAL_ITEMS = [nil, :ranong, :ranong_andaman, :penang].freeze
 
   def self.load_paypal txn_id, cookies
